@@ -14,7 +14,7 @@ audio.append(audioSource);
 document.body.insertAdjacentElement('afterbegin', audio);
 audioSource.src = './Vini_Vici_Astrix_-_Adhana_Clip_Ed_(getmp3.pro).mp3';
 
-audio.currentTime = 0;
+audio.currentTime = 25;
 
 window.addEventListener('keydown', (e) => {
 	e.key === ' ' && audio.paused ? audio.play() : audio.pause();
@@ -43,7 +43,7 @@ let globalVar2 = 0;
 let deploySquare = true;
 let bimW = getPropValue(bimg, 'width');
 let bimH = getPropValue(bimg, 'height');
-let coe = 2;
+let coe = 0;
 const coep = document.getElementById('coe');
 coep.onclick = () => coep.remove();
 function createVisualizer() {
@@ -67,18 +67,19 @@ function createVisualizer() {
 
 			ctx.globalAlpha = 1 /* eachByte * (1 / arrayMax) + 0.1 */;
 
-			const SinusX = Math.sin((i * coe * Math.PI) / 45) * -2;
-			const CosinusY = Math.cos((i * coe * Math.PI) / 45) * -2;
+			const SinusX = Math.sin((i * (Math.cos((coe * Math.PI) / 120) * coe) * Math.PI) / 45) * 2.4;
+			const CosinusY = Math.cos((i * (Math.cos((coe * Math.PI) / 120) * coe) * Math.PI) / 45) * 2.4;
 
+			//sinus-cosinus
 			ctx.beginPath();
-			ctx.fillStyle = `rgb(${255}, ${255}, ${255})`;
+			ctx.fillStyle = `rgb(${0}, ${0}, ${0})`;
 			ctx.shadowColor = `rgb(${globalVar / 2}, ${0}, ${0})`;
 			ctx.shadowBlur = 1;
 			ctx.arc(circlePositionX + i * SinusX, circlePositionY + i * CosinusY, circleSize, 0, 2 * Math.PI);
 			ctx.fill();
 
 			ctx.beginPath();
-			ctx.fillStyle = `rgb(${0}, ${0}, ${0})`;
+			ctx.fillStyle = `rgb(${255}, ${255}, ${255})`;
 			ctx.shadowColor = `rgb(${globalVar / 3}, ${0}, ${0})`;
 			ctx.shadowBlur = 1;
 			ctx.arc(circlePositionX - i * SinusX, circlePositionY - i * CosinusY, circleSize, 0, 2 * Math.PI);
@@ -86,10 +87,11 @@ function createVisualizer() {
 
 			ctx.globalAlpha = Math.abs(Math.cos((i * Math.PI) / 180) * (arrayMax / 1 / 255)) * 0;
 			canvas.style.transform = `rotate(${c}deg)`;
-			if (arrayMax > 195) c += 0.05;
-			else c -= 0.02;
+			// if (arrayMax > 195) c += 0.05;
+			// else c -= 0.02;
 			if (c >= 360) c = 0;
-			coe += 0.00001;
+			coe += 1 / 6000;
+
 			coep.innerHTML = coe;
 		}
 		ctx.shadowColor = `rgb(${arrayMax / (1 / arrayMax)}, 0, 0)`;
