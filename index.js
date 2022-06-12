@@ -12,7 +12,7 @@ const audio = document.createElement('audio');
 const audioSource = document.createElement('source');
 audio.append(audioSource);
 document.body.insertAdjacentElement('afterbegin', audio);
-audioSource.src = './Boris_Brejcha_-_The_Crocodile_Unr_(getmp3.pro).mp3';
+audioSource.src = './Vini_Vici_Astrix_-_Adhana_Clip_Ed_(getmp3.pro).mp3';
 
 audio.currentTime = 0;
 
