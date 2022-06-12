@@ -12,7 +12,7 @@ const audio = document.createElement('audio');
 const audioSource = document.createElement('source');
 audio.append(audioSource);
 document.body.insertAdjacentElement('afterbegin', audio);
-audioSource.src = './Vini_Vici_Astrix_-_Adhana_Clip_Ed_(getmp3.pro).mp3';
+audioSource.src = './Boris_Brejcha_-_The_Crocodile_Unr_(getmp3.pro).mp3';
 
 audio.currentTime = 0;
 
@@ -43,6 +43,9 @@ let globalVar2 = 0;
 let deploySquare = true;
 let bimW = getPropValue(bimg, 'width');
 let bimH = getPropValue(bimg, 'height');
+let coe = 2;
+const coep = document.getElementById('coe');
+coep.onclick = () => coep.remove();
 function createVisualizer() {
 	audioContext.resume();
 	if (!audio.paused) {
@@ -64,8 +67,8 @@ function createVisualizer() {
 
 			ctx.globalAlpha = 1 /* eachByte * (1 / arrayMax) + 0.1 */;
 
-			const SinusX = Math.sin((i * 4 * Math.PI) / 45) * 2;
-			const CosinusY = Math.cos((i * 4 * Math.PI) / 45) * 2;
+			const SinusX = Math.sin((i * coe * Math.PI) / 45) * -2;
+			const CosinusY = Math.cos((i * coe * Math.PI) / 45) * -2;
 
 			ctx.beginPath();
 			ctx.fillStyle = `rgb(${255}, ${255}, ${255})`;
@@ -86,6 +89,8 @@ function createVisualizer() {
 			if (arrayMax > 195) c += 0.05;
 			else c -= 0.02;
 			if (c >= 360) c = 0;
+			coe += 0.00001;
+			coep.innerHTML = coe;
 		}
 		ctx.shadowColor = `rgb(${arrayMax / (1 / arrayMax)}, 0, 0)`;
 		ctx.shadowBlur = 4;
