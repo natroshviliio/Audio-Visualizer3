@@ -1,0 +1,50 @@
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    background-color: black;
+}
+
+.bimg {
+    width: 110%;
+    height: 110%;
+    background-image: url('./darkns.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* filter: blur(3px); */
+    filter: brightness(0.3);
+    position: absolute;
+    left: 43%;
+    top: 46%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+canvas {
+    background-color: transparent;
+    border: #333;
+    position: absolute;
+    top: -55%;
+    transform: translateY(50%);
+}
+
+.square {
+    width: 3px;
+    height: 3px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    border-radius: 50%;
+}
