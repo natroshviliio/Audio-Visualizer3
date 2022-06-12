@@ -15,6 +15,7 @@ document.body.insertAdjacentElement('afterbegin', audio);
 audioSource.src = './Vini_Vici_Astrix_-_Adhana_Clip_Ed_(getmp3.pro).mp3';
 
 audio.currentTime = 25;
+audio.load();
 
 window.addEventListener('keydown', (e) => {
 	e.key === ' ' && audio.paused ? audio.play() : audio.pause();
@@ -52,7 +53,7 @@ let coe = 0;
 
 function createVisualizer() {
 	audioContext.resume();
-	if (!audio.paused) {
+	if (!audio.paused && audio.currentTime > 0) {
 		analyser.getByteFrequencyData(dataArray);
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 
