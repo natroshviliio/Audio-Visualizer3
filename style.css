@@ -27,15 +27,16 @@ body {
     left: 43%;
     top: 46%;
     transform: translate(-50%, -50%);
-    z-index: -1;
+    z-index: -2;
 }
 
 canvas {
     background-color: transparent;
     border: #333;
     position: absolute;
-    top: -55%;
-    transform: translateY(50%);
+    /* top: -55%;
+    transform: translateY(50%); */
+    z-index: -1;
 }
 
 .square {
@@ -47,4 +48,9 @@ canvas {
     transform: translate(-50%, -50%);
     background-color: transparent;
     border-radius: 50%;
+}
+
+#coe {
+    z-index: 0;
+    color: white;
 }

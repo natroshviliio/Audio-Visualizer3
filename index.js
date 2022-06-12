@@ -1,6 +1,6 @@
 const canvas = document.createElement('canvas');
 canvas.width = window.innerWidth;
-canvas.height = window.innerWidth;
+canvas.height = window.innerHeight;
 document.body.insertAdjacentElement('afterbegin', canvas);
 
 const ctx = canvas.getContext('2d');
@@ -37,6 +37,11 @@ const dataArray = new Uint8Array(bufferLength);
 
 const bimg = document.getElementById('bimg');
 
+const coep = document.getElementById('coe');
+coep.onclick = function () {
+	this.remove();
+};
+
 let c = 0;
 let globalVar = 0;
 let globalVar2 = 0;
@@ -44,8 +49,7 @@ let deploySquare = true;
 let bimW = getPropValue(bimg, 'width');
 let bimH = getPropValue(bimg, 'height');
 let coe = 0;
-const coep = document.getElementById('coe');
-coep.onclick = () => coep.remove();
+
 function createVisualizer() {
 	audioContext.resume();
 	if (!audio.paused) {
