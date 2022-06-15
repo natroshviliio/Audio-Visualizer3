@@ -21,6 +21,10 @@ window.addEventListener('keydown', (e) => {
 	e.key === ' ' && audio.paused ? audio.play() : audio.pause();
 });
 
+window.addEventListener('click', (e) => {
+	audio.paused ? audio.play() : audio.pause();
+}
+
 const audioContext = new AudioContext();
 const analyser = audioContext.createAnalyser();
 const source = audioContext.createMediaElementSource(audio);
