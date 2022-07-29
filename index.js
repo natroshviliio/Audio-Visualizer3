@@ -14,16 +14,15 @@ audio.append(audioSource);
 document.body.insertAdjacentElement('afterbegin', audio);
 audioSource.src = './Vini_Vici_Astrix_-_Adhana_Clip_Ed_(getmp3.pro).mp3';
 
-audio.currentTime = 25;
+audio.currentTime = 0;
 audio.load();
 
 window.addEventListener('keydown', (e) => {
 	e.key === ' ' && audio.paused ? audio.play() : audio.pause();
 });
-
-window.addEventListener('click', (e) => {
+window.addEventListener('click', () => {
 	audio.paused ? audio.play() : audio.pause();
-})
+});
 
 const audioContext = new AudioContext();
 const analyser = audioContext.createAnalyser();
